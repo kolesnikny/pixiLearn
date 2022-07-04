@@ -1,4 +1,11 @@
-import { Application, Graphics, Text, TextStyle } from 'pixi.js';
+import {
+  Application,
+  Graphics,
+  Sprite,
+  Text,
+  TextStyle,
+  Texture,
+} from 'pixi.js';
 import {} from '@pixi/graphics-extras';
 const app = new Application({
   width: 500,
@@ -77,18 +84,23 @@ myText.style.wordWrap = true;
 myText.style.wordWrapWidth = 100;
 myText.style.align = 'center';
 
-app.ticker.add((delta) => loop(delta));
-function loop(delta) {
-  const rect = new Graphics();
-  rectangle
-    .beginFill(0xffffff)
-    .drawRect(
-      Math.random() * app.screen.width,
-      Math.random() * app.screen.height,
-      10,
-      10
-    )
-    .endFill();
+// app.ticker.add((delta) => loop(delta));
 
-  app.stage.addChild(rect);
-}
+// function loop(delta) {
+//   const rect = new Graphics();
+//   rectangle
+//     .beginFill(0xffffff)
+//     .drawRect(
+//       Math.random() * app.screen.width,
+//       Math.random() * app.screen.height,
+//       10,
+//       10
+//     )
+//     .endFill();
+//   app.stage.addChild(rect);
+// }
+
+const char1Texture = Texture.from('public/images/char1.png');
+const char1Sprite = new Sprite(char1Texture);
+
+app.stage.addChild(char1Sprite);
